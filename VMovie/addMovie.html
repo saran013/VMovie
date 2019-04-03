@@ -1,0 +1,213 @@
+<html>
+
+<head>
+    <title>VM</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="add.js"></script> -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+
+</head>
+
+<body>
+
+    <ons-toolbar style="background-color:#7859ff; width:100%">
+        <div class="left" id="page2.html">
+            <ons-back-button onclick="backtohome()">Home</ons-back-button>
+        </div>
+        <div class="center"></div>
+    </ons-toolbar>
+
+
+    <ons-page>
+        <div class="page-content" style="padding-top: 60px; text-align: center">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" widht="100%" height="100%">
+
+
+
+                <ons-list-header style="text-align: center;background-color: #7859ff">Add Movie</ons-list-header>
+
+
+                <!-- <ons-row>
+                    <ons-col class="mdl-data-table__cell--non-numeric">Background</ons-col>
+                    <ons-col>
+
+                        <ons-input type="file" id="fileBackground" ></ons-input>
+
+                    </ons-col>
+                    <ons-col>
+                        <div id="tt3" class="icon material-icons">cloud_upload</div>
+                        <div class="mdl-tooltip" data-mdl-for="tt3">
+                            Upload <strong>file.zip</strong>
+                        </div>
+                    </ons-col>
+                </ons-row> -->
+
+
+                <ons-row>
+                    <ons-col class="mdl-data-table__cell--non-numeric">Poster</ons-col>
+                    <ons-col>
+
+
+
+                    </ons-col>
+                    <ons-col>
+                        <input type="file" id="fileButton">
+                        <div id="tt3" class="icon material-icons">cloud_upload</div>
+                        <div class="mdl-tooltip" data-mdl-for="tt3">
+                            Upload <strong>file.zip</strong>
+                        </div>
+                    </ons-col>
+                </ons-row>
+
+
+                <ons-row>
+
+                    <ons-col class="mdl-data-table__cell--non-numeric">Name Movie</ons-col><br>
+                    <ons-col>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <div class="list-item__center">
+                                <ons-input class="mdl-textfield__input" type="nameMovie" id="nameMovie"></ons-input>
+                                <label class="mdl-textfield__label" for="nameMovie">Name Movie</label>
+                            </div>
+                    </ons-col>
+
+                    <!-- <ons-col class="mdl-data-table__cell--non-numeric">Directed by</ons-col><br>
+                    <ons-col>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <ons-input class="mdl-textfield__input" type="Directed" id="Directed"></ons-input>
+                            <label class="mdl-textfield__label" for="Directed">Name directer</label>
+                        </div>
+                    </ons-col>
+              
+                    <ons-col class="mdl-data-table__cell--non-numeric">Time</ons-col><br>
+                    <ons-col>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <ons-input class="mdl-textfield__input" type="time" id="timeMovie"></ons-input>
+                            <label class="mdl-textfield__label" for="timeMovie"></label>
+                        </div>
+                    </ons-col>
+                
+                    <ons-col class="mdl-data-table__cell--non-numeric">Score review</ons-col><br>
+                    <ons-col>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <ons-input class="mdl-textfield__input" type="Score" id="Score" ></ons-input>
+                            <label class="mdl-textfield__label" for="Score">IMDb</label>
+                        </div>
+                    </ons-col>
+                
+                    <ons-col class="mdl-data-table__cell--non-numeric">review</ons-col><br>
+                    <ons-col>
+                        <div class="mdl-textfield mdl-js-textfield" >
+                            <ons-input class="mdl-textfield__input" type="review" id="review"></ons-input>
+                            <label class="mdl-textfield__label" for="review">เรื่องย่อ</label>
+                        </div>
+                    </ons-col>
+                
+                    <ons-col class="mdl-data-table__cell--non-numeric">Link trailer</ons-col><br>
+                    <ons-col>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <ons-input class="mdl-textfield__input" type="trailer" id="trailer"></ons-input>
+                            <label class="mdl-textfield__label" for="trailer">Link:</label>
+                        </div>
+                    </ons-col>
+                </ons-row> -->
+
+
+
+
+                    <ons-col class="mdl-data-table__cell--non-numeric" style="text-align: center">
+                        <button id="add-data" style="background-color:#7859ff"
+                            class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                            add
+                        </button>
+                    </ons-col>
+                </ons-row>
+                <ons-row>
+
+                    <ons-col>
+                        <div class="panel panel-danger" id="errors" style='display: none;'>
+                        </div>
+                        <div class="panel panel-primary" id="success" style='display: none;'>
+                        </div>
+                        <div class="col-xs-2"></div>
+                        <div class="row"></div>
+                    </ons-col>
+                </ons-row>
+
+
+            </table>
+        </div>
+    </ons-page>
+    </template>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDRm2LN8u9TgQEGxpSjoyC2KMZzbvU-CeI",
+            authDomain: "vmovie-58dd1.firebaseapp.com",
+            databaseURL: "https://vmovie-58dd1.firebaseio.com",
+            projectId: "vmovie-58dd1",
+            storageBucket: "vmovie-58dd1.appspot.com",
+            messagingSenderId: "613052466514"
+        };
+
+        var thumbnail;
+
+        firebase.initializeApp(config);
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                var mailLogin = user.email;
+                console.log(user.uid);
+                console.log(user.email);
+
+
+                var database = firebase.database();
+
+                var fileButton = document.getElementById("fileButton");
+                fileButton.addEventListener('change', function (e) {
+                    var file = e.target.files[0];
+                    var storageRef = firebase.storage().ref(file.name);
+                    storageRef.put(file);
+                    thumbnail = "https://firebasestorage.googleapis.com/v0/b/" + config["storageBucket"] + "/o/" + file.name + "?alt=media";
+                });
+
+                document.getElementById("add-data").onclick = function (e) {
+
+                    var nameMovie = document.getElementById('nameMovie').value;
+                    var rootRef = firebase.database().ref();
+                    var storesRef = rootRef.child('category/newmovie/data/');
+                    var newStoreRef = storesRef.push();
+                    newStoreRef.set({
+                        nameMovie: nameMovie,
+                        thumbnail: thumbnail
+                    });
+                    alert("Success");
+                    window.location.href = "homeUser.html";
+                }
+
+            } else {
+                // User is signed out.
+                console.log('not log in');
+            }
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
